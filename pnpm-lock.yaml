@@ -4,7 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  dotenv:
+    specifier: ^16.3.1
+    version: 16.3.1
+  irc:
+    specifier: ^0.5.2
+    version: 0.5.2
+
 devDependencies:
+  '@types/irc':
+    specifier: ^0.5.1
+    version: 0.5.1
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
@@ -680,6 +691,12 @@ packages:
       '@types/node': 20.4.1
     dev: true
 
+  /@types/irc@0.5.1:
+    resolution: {integrity: sha512-lc0v1lY6OHkyrX/gJH8fRIeN1KBkyBF6Ot6mOUK0ontnzXJIOA2D3/ggrT6eZS3p/lp+kOUBtw30B1/rHBZbog==}
+    dependencies:
+      '@types/node': 20.4.1
+    dev: true
+
   /@types/istanbul-lib-coverage@2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
@@ -1029,6 +1046,11 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dev: true
 
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
+    dev: false
+
   /electron-to-chromium@1.4.454:
     resolution: {integrity: sha512-pmf1rbAStw8UEQ0sr2cdJtWl48ZMuPD9Sto8HVQOq9vx9j2WgDEN6lYoaqFvqEHYOmGA9oRGn7LqWI9ta0YugQ==}
     dev: true
@@ -1208,6 +1230,15 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
+  /iconv@2.2.3:
+    resolution: {integrity: sha512-evIiYeKdt5nEGYKNkQcGPQy781sYgbBKi3gEkt1s4CwteCdOHSjGGRyyp6lP8inYFZwvzG3lgjXEvGUC8nqQ5A==}
+    engines: {node: '>=0.8.0'}
+    requiresBuild: true
+    dependencies:
+      nan: 2.17.0
+    dev: false
+    optional: true
+
   /import-local@3.1.0:
     resolution: {integrity: sha512-ASB07uLtnDs1o6EHjKpX34BKYDSqnFerfTOJL2HvMqF70LnxpjkzDB8J44oT9pu4AMPkQwf8jl6szgvNd2tRIg==}
     engines: {node: '>=8'}
@@ -1232,6 +1263,21 @@ packages:
   /inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: true
+
+  /irc-colors@1.5.0:
+    resolution: {integrity: sha512-HtszKchBQTcqw1DC09uD7i7vvMayHGM1OCo6AHt5pkgZEyo99ClhHTMJdf+Ezc9ovuNNxcH89QfyclGthjZJOw==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /irc@0.5.2:
+    resolution: {integrity: sha512-KnrvkV05Y71SWmRWHtnlWEIH7LA/YeDul6l7tncCGLNEw4B6Obtmkatb3ACnSLj0kOJ6UBiuhss9e+eRG3zlxw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      irc-colors: 1.5.0
+    optionalDependencies:
+      iconv: 2.2.3
+      node-icu-charset-detector: 0.2.0
+    dev: false
 
   /is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
@@ -1830,9 +1876,23 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
 
+  /nan@2.17.0:
+    resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    dev: false
+    optional: true
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /node-icu-charset-detector@0.2.0:
+    resolution: {integrity: sha512-DYOFJ3NfKdxEi9hPbmoCss6WydGhJsxpSleUlZfAWEbZt3AU7JuxailgA9tnqQdsHiujfUY9VtDfWD9m0+ThtQ==}
+    engines: {node: '>=0.6'}
+    requiresBuild: true
+    dependencies:
+      nan: 2.17.0
+    dev: false
+    optional: true
 
   /node-int64@0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}

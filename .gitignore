@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+#dist
+#coverage
+src/config/dev.env
+src/config/prod.env

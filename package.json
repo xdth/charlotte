@@ -11,9 +11,14 @@
   "author": "dth - dthlabs.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/irc": "^0.5.1",
     "@types/jest": "^29.5.2",
     "jest": "^29.6.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "irc": "^0.5.2"
   }
 }
